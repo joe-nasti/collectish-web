@@ -1,0 +1,1 @@
+{"name":"Collectish","short_name":"Collectish","start_url":"../","display":"standalone","background_color":"#f5f8ff","theme_color":"#1866e8","icons":[{"src":"../collectish-icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"}],"scope":"../"}
