@@ -1,0 +1,164 @@
+[
+  {
+    "id": "delvin-2026-09-09-creator-activity-reliability",
+    "product": "Delvin",
+    "theme": "creator_activity",
+    "title": "More reliable creator activity answers",
+    "impact": "Delvin creator questions now reconcile saved deck links and keep current creator activity usable when individual source records need repair.",
+    "released_at": "2026-09-09T22:40:47Z",
+    "verification_status": "verified",
+    "example": {
+      "input": "/ask question: What has aspiringspike been playing?",
+      "expected_output": "Current creator activity and deck context without silently losing saved deck links that can be reconciled.",
+      "surface": "Web and Discord /ask"
+    },
+    "media": {
+      "screenshot_url": null,
+      "video_url": null
+    }
+  },
+  {
+    "id": "signals-2026-09-09-research-evidence-links",
+    "product": "Signals",
+    "theme": "research_evidence_links",
+    "title": "Jump from Research evidence to the video moment",
+    "impact": "Research evidence timestamps now open the source YouTube video at the exact extracted moment, with an explicit watch action and a mobile-friendly tap target.",
+    "released_at": "2026-09-09T22:36:51Z",
+    "verification_status": "verified",
+    "example": {
+      "input": "Open a saved video signal in Research and tap Watch evidence at 2:33.",
+      "expected_output": "The source video opens at 2:33, matching the evidence offset Collectish extracted for that signal.",
+      "surface": "Collectish web and Android hosted UI"
+    },
+    "media": {
+      "screenshot_url": null,
+      "video_url": null
+    }
+  },
+  {
+    "id": "delvin-2026-09-07-sale-scan",
+    "product": "Delvin",
+    "theme": "sales_post_scan",
+    "title": "Scan sale posts from Discord photos",
+    "impact": "Delvin can analyze sale-post photos, recognize cards, enrich unresolved printings, and return a Collectish seller-oriented result without blocking on heavyweight image processing.",
+    "released_at": "2026-09-07T23:04:06Z",
+    "verification_status": "verified",
+    "example": {
+      "input": "/scan-sale with one or more sale photos",
+      "expected_output": "A queued Collectish sale analysis with recognized cards, printing confidence, unresolved-card enrichment, and seller-oriented recommendations.",
+      "surface": "Discord"
+    },
+    "media": {
+      "screenshot_url": null,
+      "video_url": null
+    }
+  },
+  {
+    "id": "delvin-2026-09-07-analyze-with-collectish",
+    "product": "Delvin",
+    "theme": "analyze_with_collectish",
+    "title": "Analyze Discord posts with Collectish",
+    "impact": "A Discord message can be sent to Collectish for private or community analysis, including sale-post images shared from outside the Collectish server.",
+    "released_at": "2026-09-07T18:38:39Z",
+    "verification_status": "verified",
+    "example": {
+      "input": "Message context menu → Analyze with Collectish",
+      "expected_output": "Collectish acknowledges immediately, processes the selected message or images, and returns or shares the finished analysis in the appropriate Collectish context.",
+      "surface": "Discord"
+    },
+    "media": {
+      "screenshot_url": null,
+      "video_url": null
+    }
+  },
+  {
+    "id": "delvin-2026-09-06-family-move-research",
+    "product": "Delvin",
+    "theme": "family_move_research",
+    "title": "External catalyst research for card moves",
+    "impact": "Causal questions like ‘Why did Baleful Strix move?’ combine Collectish market evidence and Signals with external catalyst research, then translate the result into a seller board.",
+    "released_at": "2026-09-07T02:51:06Z",
+    "verification_status": "verified",
+    "example": {
+      "input": "/ask question: Why did Baleful Strix move?",
+      "expected_output": "A catalyst summary with confidence/timing plus printing-level ACT NOW, WATCH, EXTENDED, and TODAY guidance.",
+      "surface": "Discord /ask"
+    },
+    "media": {
+      "screenshot_url": null,
+      "video_url": null
+    }
+  },
+  {
+    "id": "delvin-2026-09-06-product-changelog",
+    "product": "Delvin",
+    "theme": "product_changelog",
+    "title": "Ask Delvin what changed",
+    "impact": "Delvin can distinguish product-change questions from market-change questions and summarize meaningful user-visible changes instead of returning unrelated card rows.",
+    "released_at": "2026-09-06T23:39:37Z",
+    "verification_status": "verified",
+    "example": {
+      "input": "/ask question: What changed in Delvin since yesterday?",
+      "expected_output": "A concise list of user-facing Delvin capabilities, separated from market movement and implementation-only changes.",
+      "surface": "Discord /ask"
+    },
+    "media": {
+      "screenshot_url": null,
+      "video_url": null
+    }
+  },
+  {
+    "id": "delvin-2026-09-06-sealed-screenshot",
+    "product": "Delvin",
+    "theme": "sealed_screenshot_analysis",
+    "title": "Analyze sealed purchase-list screenshots",
+    "impact": "Delvin can resolve sealed products from a screenshot and evaluate acquisition economics rather than requiring a manually typed list.",
+    "released_at": "2026-09-06T20:09:13Z",
+    "verification_status": "verified",
+    "example": {
+      "input": "Attach a sealed purchase-list screenshot to /ask and ask for the best purchases.",
+      "expected_output": "Ranked acquisition guidance using landed price, practical/direct-first EV, ROI, liquidity, and value concentration.",
+      "surface": "Discord /ask"
+    },
+    "media": {
+      "screenshot_url": null,
+      "video_url": null
+    }
+  },
+  {
+    "id": "delvin-2026-09-06-collector-trajectory",
+    "product": "Delvin",
+    "theme": "collector_trajectory",
+    "title": "Collector Booster trajectory questions",
+    "impact": "Collector Booster lifecycle forecasts and same-age historical analog follow-ups stay on the dedicated trajectory model path.",
+    "released_at": "2026-09-06T13:59:35Z",
+    "verification_status": "verified",
+    "example": {
+      "input": "/ask question: What is the Collector Booster trajectory for Final Fantasy?",
+      "expected_output": "Lifecycle stage, forecast authority by horizon, supply-confirmation state, and same-age analogs with match reasons and disagreements.",
+      "surface": "Discord /ask"
+    },
+    "media": {
+      "screenshot_url": null,
+      "video_url": null
+    }
+  },
+  {
+    "id": "delvin-2026-09-06-named-source-routing",
+    "product": "Delvin",
+    "theme": "named_source_routing",
+    "title": "Cleaner named-source questions",
+    "impact": "MTGStocks and TCGplayer source-specific questions retain their source semantics and the actionable MTGStocks layer collapses duplicate card-family treatments.",
+    "released_at": "2026-09-06T03:02:08Z",
+    "verification_status": "verified",
+    "example": {
+      "input": "/ask question: What are the top MTGStocks Interests today?",
+      "expected_output": "Separate raw source ranking, Collectish-vetted opportunities, and noise rather than a generic market answer.",
+      "surface": "Discord /ask"
+    },
+    "media": {
+      "screenshot_url": null,
+      "video_url": null
+    }
+  }
+]
