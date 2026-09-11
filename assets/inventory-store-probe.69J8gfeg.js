@@ -1,0 +1,1 @@
+var e=Promise.resolve();function t(t){let n=e.catch(()=>{}).then(t);return e=n,n}export{t};
