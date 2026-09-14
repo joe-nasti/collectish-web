@@ -29,6 +29,13 @@ body.cx-scout-filter-lock{overflow:hidden}
 #cxScout.cx-scout-view-ranked #cxQuickTurnScout{display:none!important}
 #cxScout.cx-scout-view-quick .cx-scout-layout{display:none!important}
 #cxScout.cx-scout-view-quick #cxQuickTurnScout{display:block!important;margin-top:4px}
+#cxQuickTurnScout .cx-quick-turn-card{display:grid;gap:10px;min-width:0;padding:14px;text-align:left;font:inherit;line-height:1.5;cursor:pointer}
+#cxQuickTurnScout .cx-quick-turn-card>span{display:grid;gap:4px;min-width:0;font-size:13px;color:var(--color-text-secondary)}
+#cxQuickTurnScout .cx-quick-turn-card small{display:block;font-size:12px;line-height:1.5;overflow-wrap:anywhere}
+#cxQuickTurnScout .cx-quick-turn-name{font-size:15px;line-height:1.35;color:var(--color-text-primary)}
+#cxQuickTurnScout .cx-quick-turn-open{color:var(--color-accent);font-weight:700}
+#cxQuickTurnScout .cx-quick-turn-card:hover{background:var(--row-selected);border-color:var(--color-accent)}
+#cxQuickTurnScout .cx-quick-turn-card:focus-visible{outline:2px solid var(--color-accent);outline-offset:2px}
 #cxScout .cx-scout-decision{display:grid;gap:3px;padding:12px 13px;margin:10px 0 12px;border:1px solid color-mix(in srgb,var(--color-success) 45%,var(--color-border));border-radius:13px;background:color-mix(in srgb,var(--color-success) 8%,var(--color-bg-surface))}
 #cxScout .cx-scout-decision small{font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:.05em;color:var(--color-success)}
 #cxScout .cx-scout-decision strong{font-size:16px;line-height:1.25;color:var(--color-text-primary)}
