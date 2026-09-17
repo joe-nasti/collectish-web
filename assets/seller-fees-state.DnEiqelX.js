@@ -1,0 +1,1 @@
+import{g as e,n as t,y as n}from"./market-preferences-state.D_1N71mP.js";var r=()=>e(t().seller),i=e=>n(e,r());export{r as n,i as t};
