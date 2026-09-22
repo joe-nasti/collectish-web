@@ -1,0 +1,1 @@
+var e=[`mtgjson_uuid`,`sku_market_price`,`tcg_low`,`low_with_shipping`,`direct_low`,`tcg_price_observed_at`],t=e=>e!=null&&e!==``;function n(n={},r={}){let i=n&&typeof n==`object`?n:{},a=r&&typeof r==`object`?r:{},o={...i,...a};for(let n of e)!t(a[n])&&t(i[n])&&(o[n]=i[n]);return o}export{n as t};
