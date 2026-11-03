@@ -10,7 +10,7 @@
         var p=new URL(location.href).searchParams;
         var scoutTarget=['sku','product','card','fromCard'].some(function(k){return p.has(k)});
         var android=/Android/i.test(navigator.userAgent||'');
-        var nativeHost=p.get('nativeHost')==='1';
+        var nativeHost=Boolean(window.CollectishAndroid)||p.get('nativeHost')==='1';
         var webFallback=p.get('webFallback')==='1';
         if(android&&scoutTarget&&!nativeHost&&!webFallback&&!/\/open\.html$/.test(location.pathname)){
           location.replace(new URL('./open.html'+location.search,location.href).toString());
@@ -66,12 +66,12 @@
       },7000);
     })();
   </script>
-  <script type="module" crossorigin src="./assets/index.wvtf2Xr_.js"></script>
+  <script type="module" crossorigin src="./assets/index.sXGkDzMO.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/modulepreload-polyfill.Bk9sKujQ.js">
   <link rel="modulepreload" crossorigin href="./assets/preload-helper.DH26aft6.js">
   <link rel="stylesheet" crossorigin href="./assets/index.CjgjQgna.css">
-  <meta name="collectish-build" content="c30fa560106768c85fa9eee829730fcf1475b656">
-  <meta name="collectish-revision" content="r1309">
+  <meta name="collectish-build" content="1224dee1f978da7c4b6fa67970233a63f4693ad1">
+  <meta name="collectish-revision" content="boot-1224dee1">
 </head>
 <body>
   <main id="collectishBootFallback"><div><strong>collectish</strong><span>Loading Collectish…</span></div></main>
