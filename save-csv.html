@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-bF2sba5jKrISvqp9ibCaSSV/Hzny02tG+E3F4HdeowQ='; style-src 'sha256-03N/qaJeG0/vZ9jW1Ca1r+EkFnVZT2Zv09GqPNI/L1U='; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'; worker-src 'none'">
+<title>Save a Collectish Pricing CSV</title>
+<style>body{font:1rem/1.5 system-ui,sans-serif;margin:2rem auto;padding:0 1rem;max-width:38rem}textarea{box-sizing:border-box;width:100%;font:inherit}button{font:inherit;margin:.5rem .5rem .5rem 0}</style>
+</head>
+<body>
+<main>
+<h1>Save your Pricing CSV</h1>
+<p>In the Collectish app, tap <strong>Copy for Chrome</strong>. Paste the copied text here, then tap <strong>Download CSV</strong>. Chrome saves the original CSV bytes, including the UTF-8 marker and line endings.</p>
+<p>The text stays in this tab. This page does not upload or store it. It clears the pasted text after requesting the download.</p>
+<label for="csv">Paste from Collectish Pricing</label>
+<textarea id="csv" rows="5" spellcheck="false" autocomplete="off" autocapitalize="off" autocorrect="off"></textarea>
+<div><button type="button" id="save">Download CSV</button><button type="button" id="clear">Clear</button></div>
+<p id="status" role="status" aria-live="polite"></p>
+</main>
+<script>'use strict';
+const limit=3*1024*1024;
+const field=document.getElementById('csv');
+const status=document.getElementById('status');
+let activeUrl;
+function csvBytes(value){
+  const lines=value.trim().split(/\r?\n/,2);
+  if(lines.length!==2||lines[0]!=='collectish-csv-v1')throw Error('Paste the text from “Copy for Chrome” in Collectish Pricing.');
+  const payload=value.trim().slice(lines[0].length).trim();
+  if(!payload||payload.length>4*Math.ceil(limit/3)||!/^([A-Za-z0-9+/]+={0,2})$/.test(payload)||payload.length%4!==0)throw Error('This copy is too large or incomplete. Copy it again from Pricing.');
+  const bytes=Uint8Array.from(atob(payload),c=>c.charCodeAt(0));
+  if(bytes.length<5||bytes.length>limit||bytes[0]!==239||bytes[1]!==187||bytes[2]!==191||bytes.at(-2)!==13||bytes.at(-1)!==10)throw Error('This is not a complete Collectish Pricing export.');
+  new TextDecoder('utf-8',{fatal:true}).decode(bytes);
+  return bytes;
+}
+function clear(){
+  field.value='';
+  if(activeUrl){URL.revokeObjectURL(activeUrl);activeUrl=undefined;}
+}
+document.getElementById('save').addEventListener('click',()=>{
+  try{
+    const bytes=csvBytes(field.value);
+    const link=document.createElement('a');
+    if(activeUrl)URL.revokeObjectURL(activeUrl);
+    const url=URL.createObjectURL(new Blob([bytes],{type:'text/csv;charset=utf-8'}));
+    activeUrl=url;
+    link.href=url;link.download='collectish-priced.csv';
+    document.body.append(link);
+    try{link.click();}finally{link.remove();}
+    field.value='';
+    window.setTimeout(()=>{URL.revokeObjectURL(url);if(activeUrl===url)activeUrl=undefined;},30000);
+    status.textContent='Download requested. Check Chrome Downloads for collectish-priced.csv.';
+  }catch(error){status.textContent=error.message||'Unable to create the download. Copy the export again.';}
+});
+document.getElementById('clear').addEventListener('click',()=>{clear();status.textContent='Cleared.';});
+window.addEventListener('pagehide',clear);
+</script>
+</body>
+</html>
